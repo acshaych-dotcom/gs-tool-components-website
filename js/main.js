@@ -1,3 +1,12 @@
+// Google Analytics (GA4): loaded here so every page that includes main.js is tracked.
+window.dataLayer = window.dataLayer || [];
+function gtag() { dataLayer.push(arguments); }
+gtag('js', new Date());
+gtag('config', 'G-KJ0K3TYNKF');
+(function () { var s = document.createElement('script'); s.async = true; s.src = 'https://www.googletagmanager.com/gtag/js?id=G-KJ0K3TYNKF'; document.head.appendChild(s); })();
+// Lead event on enquiry form submit (no personal data, only the product of interest).
+document.addEventListener('submit', function (e) { if (e.target && e.target.id === 'leadForm') { var i = document.getElementById('interest'); gtag('event', 'generate_lead', { interest: i ? i.value : '', transport_type: 'beacon' }); } }, true);
+
 document.addEventListener('DOMContentLoaded', function () {
   var yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
